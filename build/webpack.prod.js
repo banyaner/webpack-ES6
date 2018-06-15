@@ -10,6 +10,8 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const common = require('./webpack.common.js')
 const argv = require('yargs').argv
+const pkg = require('../package.json')
+
 module.exports = merge(common, {
     mode: 'production',
     devtool: 'none', // 生成source map慢
