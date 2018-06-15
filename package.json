@@ -1,6 +1,6 @@
 {
   "name": "wp4",
-  "ntmId": "",
+  "projectId": "",
   "version": "1.0.0",
   "description": "webpack4",
   "private": true,

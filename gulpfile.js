@@ -53,10 +53,10 @@ gulp.task('pre', function () {
 
 gulp.task('publish', function () {
     if (!pkg.projectId) {
-        throw new Error('package.json中未添加统计的ntmId')
+        throw new Error('package.json中未添加统计的projectId')
     }
     const statistics = [
-        `window.ntmId =${pkg.ntmId}; <script>(function(w,d,s,n) {var f=d.getElementsByTagName(s)[0],k=d.createElement(s);k.async=true;k.src="//static.ws.126.net/utf8/3g/analytics/data1/"+n+".js";f.parentNode.insertBefore(k,f);})(window,document,"script","${pkg.ntmId}");</script>`
+        `<script>window.projectId =${pkg.projectId}; (function(w,d,s,n) {var f=d.getElementsByTagName(s)[0],k=d.createElement(s);k.async=true;k.src="//static.ws.126.net/utf8/3g/analytics/data1/"+n+".js";f.parentNode.insertBefore(k,f);})(window,document,"script","${pkg.projectId}");</script>`
     ].join('')
     const conn = vinylftp.create(ftppass.vinylftp)
     gulp.src(['dist/index.html'])
