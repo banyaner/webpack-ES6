@@ -20,6 +20,7 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "child_process": "^1.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "easeftp": "^2.0.39",
