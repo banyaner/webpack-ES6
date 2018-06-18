@@ -12,12 +12,20 @@
     <script>
         // rem适配
         !(function () {
+            var designWidth = 750
+            var designHeight = 1206
+            var rem = 100
             function updateHtmlFontSize() {
-                var designWidth = 750
                 var oHtml = document.getElementsByTagName('html')[0]
                 var width = oHtml.clientWidth
-                var rem = 100
-                document.documentElement.style.fontSize = rem * width / designWidth + 'px'
+                var height = oHtml.clientHeight
+                var clientWidth
+                if (width < height) {
+                    clientWidth = width
+                } else {
+                    clientWidth = designWidth / designHeight * height
+                }
+                document.documentElement.style.fontSize = 100 * clientWidth / designWidth + 'px'
             }
             document.addEventListener("DOMContentLoaded", updateHtmlFontSize, false)
             window.addEventListener('resize',updateHtmlFontSize, false)
@@ -25,7 +33,9 @@
     </script>
 </head>
 <body>
-<h1>Hello, webpack4!</h1>
+<div id="app">
+    <h1>Hello, webpack4!</h1>
+</div>
 <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
 <!--<script>eruda.init();</script>-->
 </body>

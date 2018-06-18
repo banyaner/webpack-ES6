@@ -3,5 +3,6 @@
  */
 import 'normalize.css'
 import './css/common.css'
+import './css/index.css'
 
 console.log('Welcome to Webpack4.x')
