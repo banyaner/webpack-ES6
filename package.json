@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "child_process": "^1.0.2",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "easeftp": "^2.0.39",
     "eslint": "^4.19.1",

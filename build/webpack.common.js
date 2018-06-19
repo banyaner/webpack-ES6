@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJS = require('uglify-js') // 处理内联函数的压缩
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
     target: 'web',
     entry: path.resolve(__dirname, '../src/main.js'),
@@ -73,5 +75,9 @@ module.exports = {
             },
             inlineSource: 'manifest',
         }),
+        new CopyWebpackPlugin([{
+            from: 'static',
+            to: 'static',
+        }]),
     ],
 }

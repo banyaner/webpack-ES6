@@ -19,9 +19,8 @@
 ~~5. 内联manifest~~
 ~~6. 压缩html中内联js（只压缩不编译）~~
 7. mock文件处理
-8. 静态资源目录
-9. html中image的处理（待定）
-~~10. 添加eslint~~
+~~8. 静态资源目录(html中image的处理)~~
+~~9. 添加eslint~~
 
 # 关于vendor打包
 
