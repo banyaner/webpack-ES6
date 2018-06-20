@@ -46,6 +46,7 @@ const spriteOpts = {
 module.exports = {
     sourceMap: false,
     plugins: {
+        precss: {},
         'postcss-preset-env': {},
         'postcss-sprites': spriteOpts,
         'postcss-plugin-px2rem': {
