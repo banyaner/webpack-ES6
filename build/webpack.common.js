@@ -80,4 +80,25 @@ module.exports = {
             to: 'static',
         }]),
     ],
+    optimization: {
+        runtimeChunk: {
+            name: 'manifest'
+        },
+        splitChunks: {
+            cacheGroups: {
+                asyncvendors: { // 异步加载模块来自于npm安装的包
+                    test: /node_modules/,
+                    chunks: 'async',
+                    reuseExistingChunk: true,
+                    priority: -20,
+                },
+                vendors: { // 来自于npm安装的包且非异步加载的模块或自定义lib下的文件
+                    test: /(node_modules)|(src\/js\/lib)/,
+                    chunks: 'initial',
+                    reuseExistingChunk: false,
+                    priority: -10,
+                },
+            }
+        }
+    },
 }
