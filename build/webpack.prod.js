@@ -12,7 +12,7 @@ const common = require('./webpack.common.js')
 const argv = require('yargs').argv
 const pkg = require('../package.json')
 
-module.exports = merge(common, {
+const config = {
     mode: 'production',
     devtool: 'none', // 生成source map慢
     output: {
@@ -48,7 +48,6 @@ module.exports = merge(common, {
         }),
         new OptimizeCssAssetsPlugin(),
         new HtmlWebpackInlineSourcePlugin(),
-        new BundleAnalyzerPlugin(), // bundle分析，可注释掉
     ],
     performance: {
         assetFilter: function (assetFilename) {
@@ -57,4 +56,8 @@ module.exports = merge(common, {
         hints: "warning",
     },
     stats: 'normal',
-})
+}
+// 是否使用bundle分析
+argv.analyze && config.plugins.push( new BundleAnalyzerPlugin())
+
+module.exports = merge(common, config)

@@ -5,10 +5,8 @@
   "description": "webpack4",
   "private": true,
   "scripts": {
-    "dev-mock": "webpack-dev-server --config build/webpack.dev.js --mock",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
     "build": "webpack --config build/webpack.prod.js",
-    "build-cdn": "webpack --config build/webpack.prod.js --cdn"
   },
   "author": {
     "name": "zhongxia",

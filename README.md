@@ -10,6 +10,41 @@
 
 使用rem做适配
 
+# 使用
+
+## 压缩图片
+```bash
+gulp tinypng
+```
+
+## 开启HMR
+
+```bash
+npm run dev
+```
+
+开启HMR并使用mock数据
+
+```bash
+npm run dev --mock
+```
+
+## 构建文件
+```bash
+yarn run build
+```
+## 构建并生成包分析
+```bash
+yarn run build --analyze
+```
+
+## 构建上传到cdn的文件
+```bash
+yarn run build --cdn
+```
+
+其中cdn的路径在package.json中配置
+
 
 # TODO:
 ~~1. vendor单独打包~~
