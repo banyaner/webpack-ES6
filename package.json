@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js",
+    "build": "webpack --config build/webpack.prod.js"
   },
   "author": {
     "name": "zhongxia",
