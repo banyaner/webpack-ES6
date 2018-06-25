@@ -2,10 +2,12 @@
  * Created by zhongjx on 2018/6/10.
  */
 const webpack = require('webpack')
+const path = require('path')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin') // 内联代码
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const common = require('./webpack.common.js')
@@ -37,6 +39,11 @@ const config = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            root: path.resolve(__dirname, '../'), // root目录
+            verbose: true,
+            dry: false,
+        }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),

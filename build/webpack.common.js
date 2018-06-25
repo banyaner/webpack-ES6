@@ -4,7 +4,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJS = require('uglify-js') // 处理内联函数的压缩
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -60,11 +59,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist'], {
-            root: path.resolve(__dirname, '../'), // root目录
-            verbose: true,
-            dry: false,
-        }),
         new HtmlWebpackPlugin({
             template: 'index.html',
             minify: {
