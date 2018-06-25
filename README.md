@@ -23,7 +23,7 @@ gulp tinypng
 npm run dev
 ```
 
-开启HMR并使用mock数据
+## 开启HMR并使用mock数据
 
 ```bash
 npm run dev --mock
@@ -44,6 +44,32 @@ yarn run build --cdn
 ```
 
 其中cdn的路径在package.json中配置
+
+# 功能介绍
+
+## 图片合并
+将需要合并到雪碧图的图片放在sprites目录下，构建时，会自动将合并后的图片放在src/assets/目录下。目前图片分组是按照每个css内的图片合并。如有其他需求可在**postcss.config.js**下修改。
+
+## mock数据写法
+
+将mock数据放在mock文件下，数据格式为：
+```js
+module.exports = {
+    // 接口地址
+    api: '/weeklist',
+    // 返回数据
+    response: function (req, res) {
+        var data = {
+            "name": "hello",
+        }
+        res.send(data)
+    }
+}
+```
+
+
+
+
 
 
 # TODO:
@@ -99,6 +125,25 @@ yarn run build --cdn
         }
     },
 ```
+如果接口路径形如 '/xx/yy/zz'，则在mock目录下新建多个文件夹嵌套来模拟。
+
+# 静态文件使用
+放在static目录下，使用时，路径为: 'static/xx.png'
+
+
+## 文件gulp上传
+
+需在根目录下新建一个文件 .ftpass,并写入在gulp文件中需要上传的服务器的账号和密码
+
+```js
+{
+    "test": {
+        "username": "",
+        "host": ""
+    },
+}
+```
+注：使用不同的服务器上传方式也不相同，需自己修改gulp内配置
 
 
 # 补充：
@@ -118,10 +163,4 @@ webpack --profile --json > compilation-stats.json
 ## 内联rem适配和manifest
 因manifest文件很小，所以可以内联处理
 rem适配影响页面布局尺寸需要在最开始加载
-
-
-
-
-
-
 
