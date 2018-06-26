@@ -14,7 +14,7 @@ gulp.task('tinypng', function () {
     gulp.src('src/assets/*.{png,jpg,jpeg}')
         .pipe(plumber())
         .pipe(gulpTinyPng({
-            key: 'P4chNr_-gK9KyeLZp57A6edewAEVaQMt',
+            key: ftppass.tinypng.key,
             sigFile: '.tinypng-sigs',
             sameDest: true,
             summarise: true,

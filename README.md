@@ -14,9 +14,12 @@
 # 使用
 
 ## 压缩图片
+
 ```bash
 gulp tinypng
 ```
+
+其中需要在下述的'.ftppass'文件中配置在www.tinypng.com上注册时获取的key值
 
 ## 开启HMR
 
@@ -142,6 +145,9 @@ module.exports = {
         "username": "",
         "host": ""
     },
+    "tinypng": {
+        "key": ""
+    }
 }
 ```
 注：使用不同的服务器上传方式也不相同，需自己修改gulp内配置
