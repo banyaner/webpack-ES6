@@ -92,6 +92,12 @@ module.exports = {
                     reuseExistingChunk: false,
                     priority: -10,
                 },
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                },
             }
         }
     },
