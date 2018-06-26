@@ -81,24 +81,19 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 asyncvendors: { // 异步加载模块来自于npm安装的包
-                    test: /node_modules/,
+                    test: /node_modules\/*\S+\.js$/,
                     chunks: 'async',
                     reuseExistingChunk: true,
                     priority: -20,
                 },
                 vendors: { // 来自于npm安装的包且非异步加载的模块或自定义lib下的文件
-                    test: /(node_modules)|(src\/js\/lib)/,
+                    test: /node_modules\/*\S+\.js$/,
                     chunks: 'initial',
                     reuseExistingChunk: false,
                     priority: -10,
-                },
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true
                 },
             }
         }
     },
 }
+
