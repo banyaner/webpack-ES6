@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     upload = require('easeftp/upload').add,
     ftppass = JSON.parse(fs.readFileSync('.ftppass', 'utf-8')),
     pkg = require('./package.json'),
-    plumber = require('gulp-plumber')
+    plumber = require('gulp-plumber'),
     gulpTinyPng = require('gulp-tinypng-extended')
 
 gulp.task('tinypng', function () {
