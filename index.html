@@ -15,6 +15,7 @@
             var designWidth = 750
             var designHeight = 1206
             var rem = 100
+
             function updateHtmlFontSize() {
                 var oHtml = document.getElementsByTagName('html')[0]
                 var width = oHtml.clientWidth
@@ -27,8 +28,9 @@
                 }
                 document.documentElement.style.fontSize = 100 * clientWidth / designWidth + 'px'
             }
+
             document.addEventListener("DOMContentLoaded", updateHtmlFontSize, false)
-            window.addEventListener('resize',updateHtmlFontSize, false)
+            window.addEventListener('resize', updateHtmlFontSize, false)
         })()
     </script>
 </head>
@@ -36,7 +38,5 @@
 <div id="app">
     <h1>Hello, webpack4!</h1>
 </div>
-<!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
-<!--<script>eruda.init();</script>-->
 </body>
 </html>
