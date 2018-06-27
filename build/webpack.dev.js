@@ -29,6 +29,7 @@ module.exports = merge(common, {
         host: '0.0.0.0', // 设置通过本机ip访问热加载页面
         // useLocalIp: true,
         // quiet: true,
+        disableHostCheck:true,
         historyApiFallback: false, // 需设置成false，否则mock接口未异步，无法被读取到
         before(app) {
             if (argv.mock) {

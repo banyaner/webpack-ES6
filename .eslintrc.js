@@ -45,12 +45,7 @@ module.exports = {
         'prefer-template': 0,
         'no-trailing-spaces': 0,
         'no-restricted-syntax': 0,
-        // don't require .vue extension when importing
-        'import/extensions': ['error', 'always', {
-                'js': 'never',
-                'jsx': 'never',
-                'vue': 'never'
-            }
-        ],
+        'import/extensions': 0,
+        'import/no-unresolved': [0, {commonjs: true, amd: true}],
     },
 }
