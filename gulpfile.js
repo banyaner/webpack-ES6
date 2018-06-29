@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     gulpTinyPng = require('gulp-tinypng-extended')
 
 gulp.task('tinypng', function () {
-    gulp.src('src/assets/*.{png,jpg,jpeg}')
+    gulp.src('src/**/*.{png,jpg,jpeg}')
         .pipe(plumber())
         .pipe(gulpTinyPng({
             key: ftppass.tinypng.key,
@@ -21,10 +21,10 @@ gulp.task('tinypng', function () {
             log: true
         }))
         .pipe(gulp.dest('src/assets'))
-    gulp.src('static/*.{png,jpg,jpeg}')
+    gulp.src('static/**/*.{png,jpg,jpeg}')
         .pipe(plumber())
         .pipe(gulpTinyPng({
-            key: 'P4chNr_-gK9KyeLZp57A6edewAEVaQMt',
+            key: ftppass.tinypng.key,
             sigFile: '.tinypng-sigs',
             sameDest: true,
             summarise: true,
