@@ -20,7 +20,7 @@ gulp.task('tinypng', function () {
             summarise: true,
             log: true
         }))
-        .pipe(gulp.dest('src/assets'))
+        .pipe(gulp.dest('src'))
     gulp.src('static/**/*.{png,jpg,jpeg}')
         .pipe(plumber())
         .pipe(gulpTinyPng({
