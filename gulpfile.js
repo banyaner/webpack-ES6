@@ -10,8 +10,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gulpTinyPng = require('gulp-tinypng-extended')
 
-gulp.task('tinypng', function () {
-    gulp.src('src/**/*.{png,jpg,jpeg}')
+gulp.task('tinypng-dist', function () {
+    gulp.src('dist/**/*.{png,jpg,jpeg}')
         .pipe(plumber())
         .pipe(gulpTinyPng({
             key: ftppass.tinypng.key,
@@ -20,17 +20,7 @@ gulp.task('tinypng', function () {
             summarise: true,
             log: true
         }))
-        .pipe(gulp.dest('src'))
-    gulp.src('static/**/*.{png,jpg,jpeg}')
-        .pipe(plumber())
-        .pipe(gulpTinyPng({
-            key: ftppass.tinypng.key,
-            sigFile: '.tinypng-sigs',
-            sameDest: true,
-            summarise: true,
-            log: true
-        }))
-        .pipe(gulp.dest('static'))
+        .pipe(gulp.dest('dist'))
 })
 
 gulp.task('test', function () {
@@ -56,7 +46,7 @@ gulp.task('publish', function () {
         throw new Error('package.json中未添加统计的projectId')
     }
     const statistics = [
-        `<script>window.projectId =${pkg.projectId}; (function(w,d,s,n) {var f=d.getElementsByTagName(s)[0],k=d.createElement(s);k.async=true;k.src="//static.ws.126.net/utf8/3g/analytics/data1/"+n+".js";f.parentNode.insertBefore(k,f);})(window,document,"script","${pkg.projectId}");</script>`
+        `<script>window.projectId ="${pkg.projectId}"; (function(w,d,s,n) {var f=d.getElementsByTagName(s)[0],k=d.createElement(s);k.async=true;k.src="//static.ws.126.net/utf8/3g/analytics/data1/"+n+".js";f.parentNode.insertBefore(k,f);})(window,document,"script","${pkg.projectId}");</script>`
     ].join('')
     const conn = vinylftp.create(ftppass.vinylftp)
     gulp.src(['dist/index.html'])
@@ -72,4 +62,27 @@ gulp.task('publish', function () {
     }).then(({urls}) => {
         // console.log(urls)
     })
+})
+
+gulp.task('tinypng-src-static', function () {
+    gulp.src('src/**/*.{png,jpg,jpeg}')
+        .pipe(plumber())
+        .pipe(gulpTinyPng({
+            key: ftppass.tinypng.key,
+            sigFile: '.tinypng-sigs',
+            sameDest: true,
+            summarise: true,
+            log: true
+        }))
+        .pipe(gulp.dest('src'))
+    gulp.src('static/**/*.{png,jpg,jpeg}')
+        .pipe(plumber())
+        .pipe(gulpTinyPng({
+            key: ftppass.tinypng.key,
+            sigFile: '.tinypng-sigs',
+            sameDest: true,
+            summarise: true,
+            log: true
+        }))
+        .pipe(gulp.dest('static'))
 })

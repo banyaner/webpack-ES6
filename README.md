@@ -15,8 +15,16 @@
 
 ## 压缩图片
 
+压缩需要上传到服务器的文件
+
 ```bash
-gulp tinypng
+gulp tinypng-dist
+```
+
+压缩开发目录图片(建议不执行)
+
+```bash
+gulp tinypng-src-static
 ```
 
 其中需要在下述的'.ftppass'文件中配置在www.tinypng.com上注册时获取的key值
