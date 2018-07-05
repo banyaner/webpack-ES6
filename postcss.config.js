@@ -2,7 +2,7 @@ const postcss = require('postcss')
 const spriteOpts = {
     spritePath: './src/assets/',
     spritesmith: {
-        padding: 5,
+        padding: 6,
     },
     filterBy: function (image) {
         if (image.url.indexOf('sprites/') === -1) {
