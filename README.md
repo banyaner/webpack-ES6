@@ -183,3 +183,9 @@ webpack --profile --json > compilation-stats.json
 因manifest文件很小，所以可以内联处理
 rem适配影响页面布局尺寸需要在最开始加载
 
+# 静态资源
+不希望被webpack处理的资源可以放在static目录下。
+由于项目支持cdn上传，所以使用static内的文件时需要使用js/utils/下的getStaticPath 来获取实际的图片地址。
+例如：
+  <img src={getStaticPath('static/test.png')} alt=""/>
+
