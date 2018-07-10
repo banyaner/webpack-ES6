@@ -2537,10 +2537,6 @@ error-ex@^1.2.0:
   dependencies:
     is-arrayish "^0.2.1"
 
-eruda@^1.5.0:
-  version "1.5.0"
-  resolved "http://registry.npm.taobao.org/eruda/download/eruda-1.5.0.tgz#f2c9639e685f834b064f2002ece5758506057011"
-
 es-abstract@^1.5.1, es-abstract@^1.6.1, es-abstract@^1.7.0:
   version "1.12.0"
   resolved "http://registry.npm.taobao.org/es-abstract/download/es-abstract-1.12.0.tgz#9dbbdd27c6856f0001421ca18782d786bf8a6165"

@@ -2,7 +2,6 @@
  * Created by zhongjx on 2018/6/6.
  */
 import 'normalize.css'
-import './js/mobileConsole'
 import './css/common.css'
 import './css/index.css'
 
