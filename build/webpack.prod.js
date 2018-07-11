@@ -13,7 +13,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const common = require('./webpack.common.js')
 const argv = require('yargs').argv
 const pkg = require('../package.json')
-
 const config = {
     mode: 'production',
     devtool: 'none', // 生成source map慢
@@ -48,7 +47,13 @@ const config = {
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new webpack.HashedModuleIdsPlugin(),
-        new UglifyJsPlugin(),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                compress: {
+                    drop_console: !!argv.cdn,
+                },
+            },
+        }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].css',
@@ -65,6 +70,5 @@ const config = {
     stats: 'normal',
 }
 // 是否使用bundle分析
-argv.analyze && config.plugins.push( new BundleAnalyzerPlugin())
-
+argv.analyze && config.plugins.push(new BundleAnalyzerPlugin())
 module.exports = merge(common, config)
