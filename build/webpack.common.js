@@ -7,7 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJS = require('uglify-js') // 处理内联函数的压缩
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
+const {GenerateSW} = require('workbox-webpack-plugin')
+const pkg = require('../package.json')
 module.exports = {
     target: 'web',
     entry: path.resolve(__dirname, '../src/main.js'),
@@ -72,7 +73,27 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: 'static',
             to: 'static',
-        }]),
+        }
+        ]),
+        new GenerateSW({
+            cacheId: pkg.name,
+            swDest: 'sw.js',
+            importWorkboxFrom: 'local',
+            clientsClaim: true,
+            skipWaiting: true,
+            exclude: [
+                /index\.html$/,
+            ],
+            runtimeCaching:[
+                {
+                    urlPattern: /index\.html$/,
+                    handler: 'networkFirst',
+                }, {
+                    urlPattern: /\.(js|css|png|jpg|gif)/,
+                    handler: 'staleWhileRevalidate',
+                }
+            ]
+        }),
     ],
     optimization: {
         runtimeChunk: {

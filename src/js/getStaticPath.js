@@ -3,7 +3,7 @@
  */
 const cdn = '//static.ws.126.net/163/activity'
 export default function (path) {
-    if (/^c.m.163/.test(location.host)) {
+    if (/^wp.m.163/.test(location.host)) {
         return cdn + path
     }
     return path

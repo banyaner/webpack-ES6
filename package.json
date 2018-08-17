@@ -1,6 +1,6 @@
 {
   "name": "wp4",
-  "projectId": "",
+  "projectId": "test",
   "version": "1.0.0",
   "description": "webpack4",
   "private": true,
@@ -60,7 +60,8 @@
     "yargs": "^11.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "workbox-webpack-plugin": "^3.4.1"
   },
   "browserslist": [
     "> 1%",
